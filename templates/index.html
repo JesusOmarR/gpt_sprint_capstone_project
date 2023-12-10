@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Gym Assistant</title>
+</head>
+<body>
+    <h1>Code Gym Assistant</h1>
+    <form action="/ask" method="post" id="askform">
+        <h1>HI! Welcome to your gym Assistant</h1>
+        <h3>Select the kind of exercise you want to do</h3>
+        <label>Body part</label>
+        <select name="part-select" id="part-select" form="askform">
+            <option value="">--Please choose an option--</option>
+            <option value="legs">Legs</option>
+            <option value="chest">Chest</option>
+            <option value="back">Back</option>
+            <option value="shoulders">Shoulders</option>
+            <option value="arms">arms</option>
+            <option value="biceps">biceps</option>
+          </select> 
+          <br>
+
+          <label for="intensity-select">Intensity</label> 
+          <select name="intensity-select" id="intensity-select">
+            <option value="">--Please choose an option--</option>
+            <option value="low">low</option>
+            <option value="moderate">moderate</option>
+            <option value="vigorous">vigorous</option>
+          </select> 
+          <br>
+          <label for="place-select">Place</label>   
+          <select name="place-select" id="place-select">
+            <option value="">--Please choose an option--</option>
+            <option value="gym">Gym</option>
+            <option value="home">Home</option>
+            <option value="park">Park</option>
+          </select>    
+          <br>
+     
+        <button type="submit">Ask</button>
+    </form>
+
+    <div id="chat-history">
+        {% for message in messages %}
+            <p>{{ message.role }}: {{ message.content }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
